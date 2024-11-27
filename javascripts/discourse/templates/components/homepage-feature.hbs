@@ -1,17 +1,15 @@
 {{#each this.featuredContent as |content|}}
-  {{#if content}}
-    <div class="homepage-feature" style="background-image: url({{content.image}});">
-      <div class="featured-banner">
-        <h2>{{content.name}}</h2>
-        <p>{{content.description}}</p>
-        <a href="{{content.url}}" class="btn btn-primary">
-          {{#if (eq content.type "category")}}
-            Visit Category
-          {{else}}
-            Read Thread
-          {{/if}}
-        </a>
-      </div>
+  <div class="homepage-feature" style="background-image: url({{content.image}});">
+    <div class="featured-banner">
+      <h2>{{content.name}}</h2>
+      <p>{{content.description}}</p>
+      <a href="{{content.url}}" class="btn btn-primary">
+        {{#if (eq content.type "category")}}
+          Visit Category
+        {{else}}
+          Read Thread
+        {{/if}}
+      </a>
     </div>
-  {{/if}}
+  </div>
 {{/each}}
