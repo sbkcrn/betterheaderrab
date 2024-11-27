@@ -17,37 +17,31 @@ export default Component.extend({
 
     const featuredContent = [];
 
-    features.forEach((feature, index) => {
+    features.forEach((feature) => {
       if (feature.type === "category" && feature.id) {
         // Fetch category details
         ajax(`/c/${feature.id}/show.json`).then((result) => {
           const category = result.category;
-          const featuredImage = category.background_url || category.uploaded_logo?.url;
-
-          featuredContent[index] = {
+          featuredContent.push({
             type: "category",
             name: category.name,
             description: category.description,
             url: `/c/${feature.id}`,
-            image: featuredImage || "/path/to/default/image.jpg",
-          };
-
+            image: category.background_url || "/path/to/default/image.jpg",
+          });
           this.set("featuredContent", featuredContent);
         });
       } else if (feature.type === "topic" && feature.id) {
         // Fetch topic details
         ajax(`/t/${feature.id}.json`).then((result) => {
           const topic = result;
-          const featuredImage = topic.image_url || "/path/to/default/image.jpg";
-
-          featuredContent[index] = {
+          featuredContent.push({
             type: "topic",
             name: topic.title,
             description: topic.excerpt,
             url: `/t/${topic.id}`,
-            image: featuredImage,
-          };
-
+            image: topic.image_url || "/path/to/default/image.jpg",
+          });
           this.set("featuredContent", featuredContent);
         });
       }
