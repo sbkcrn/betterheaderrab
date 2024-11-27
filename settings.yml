@@ -1,9 +1,9 @@
-categories:
-  featured_category:
-    default: 1
-    type: integer
-    description: "The ID of the featured category to display on the homepage."
-  featured_topic:
-    default: 0
-    type: integer
-    description: "The ID of the featured topic to display on the homepage if no category is set."
+featured_category:
+  default: 1
+  type: integer
+  description: "The ID of the featured category to display on the homepage."
+
+featured_topic:
+  default: 0
+  type: integer
+  description: "The ID of the featured topic to display on the homepage if no category is set."
