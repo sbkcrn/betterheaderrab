@@ -1,17 +1,17 @@
-{{#if this.featuredContent}}
-  <div id="homepage-feature" style="background-image: url({{this.featuredContent.image}});">
-    <div class="featured-banner">
-      <h2>{{this.featuredContent.name}}</h2>
-      <p>{{this.featuredContent.description}}</p>
-      <a href="{{this.featuredContent.url}}" class="btn btn-primary">
-        {{#if (eq this.featuredContent.type "category")}}
-          Visit Category
-        {{else}}
-          Read Thread
-        {{/if}}
-      </a>
+{{#each this.featuredContent as |content|}}
+  {{#if content}}
+    <div class="homepage-feature" style="background-image: url({{content.image}});">
+      <div class="featured-banner">
+        <h2>{{content.name}}</h2>
+        <p>{{content.description}}</p>
+        <a href="{{content.url}}" class="btn btn-primary">
+          {{#if (eq content.type "category")}}
+            Visit Category
+          {{else}}
+            Read Thread
+          {{/if}}
+        </a>
+      </div>
     </div>
-  </div>
-{{else}}
-  <p>No featured content is set. Please configure a thread or category in the theme settings.</p>
-{{/if}}
+  {{/if}}
+{{/each}}
