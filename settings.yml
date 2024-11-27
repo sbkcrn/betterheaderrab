@@ -1,9 +1,12 @@
-featured_category:
+featured_type:
+  default: "topic"
+  type: enum
+  choices:
+    - "topic"
+    - "category"
+  description: "Type of content to feature (topic or category)."
+
+featured_id:
   default: 1
   type: integer
-  description: "The ID of the featured category to display on the homepage."
-
-featured_topic:
-  default: 0
-  type: integer
-  description: "The ID of the featured topic to display on the homepage if no category is set."
+  description: "The ID of the featured topic or category."
