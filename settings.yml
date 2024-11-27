@@ -1,12 +1,64 @@
-featured_type:
+featured_1_type:
   default: "topic"
   type: enum
   choices:
     - "topic"
     - "category"
-  description: "Type of content to feature (topic or category)."
+  description: "Type of the first featured item (topic or category)."
 
-featured_id:
+featured_1_id:
   default: 1
   type: integer
-  description: "The ID of the featured topic or category."
+  description: "The ID of the first featured topic or category."
+
+featured_2_type:
+  default: "topic"
+  type: enum
+  choices:
+    - "topic"
+    - "category"
+  description: "Type of the second featured item (topic or category)."
+
+featured_2_id:
+  default: 0
+  type: integer
+  description: "The ID of the second featured topic or category."
+
+featured_3_type:
+  default: "category"
+  type: enum
+  choices:
+    - "topic"
+    - "category"
+  description: "Type of the third featured item (topic or category)."
+
+featured_3_id:
+  default: 0
+  type: integer
+  description: "The ID of the third featured topic or category."
+
+featured_4_type:
+  default: "topic"
+  type: enum
+  choices:
+    - "topic"
+    - "category"
+  description: "Type of the fourth featured item (topic or category)."
+
+featured_4_id:
+  default: 0
+  type: integer
+  description: "The ID of the fourth featured topic or category."
+
+featured_5_type:
+  default: "category"
+  type: enum
+  choices:
+    - "topic"
+    - "category"
+  description: "Type of the fifth featured item (topic or category)."
+
+featured_5_id:
+  default: 0
+  type: integer
+  description: "The ID of the fifth featured topic or category."
