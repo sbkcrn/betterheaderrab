@@ -1,0 +1,9 @@
+categories:
+  featured_category:
+    default: 1
+    type: category
+    description: "The ID of the featured category to display on the homepage."
+  featured_topic:
+    default: 0
+    type: topic
+    description: "The ID of the featured topic to display on the homepage if no category is set."
