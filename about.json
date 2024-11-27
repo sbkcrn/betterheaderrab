@@ -1,5 +1,6 @@
 {
   "name": "Discourse Featured Category",
+  "component": true,  // This marks it as a component
   "about_url": "https://meta.discourse.org",
   "license_url": "https://github.com/discourse/discourse-featured-category/blob/main/LICENSE",
   "authors": ["Your Name"],
