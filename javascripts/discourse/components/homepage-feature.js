@@ -48,3 +48,63 @@ export default Component.extend({
     });
   },
 });
+
+import Component from "@ember/component";
+import { ajax } from "discourse/lib/ajax";
+
+export default Component.extend({
+  featuredContent: [],
+
+  didInsertElement() {
+    this._super(...arguments);
+
+    console.log("Homepage Feature Component Loaded"); // Debugging log
+
+    const features = [
+      { type: settings.featured_1_type, id: settings.featured_1_id },
+      { type: settings.featured_2_type, id: settings.featured_2_id },
+      { type: settings.featured_3_type, id: settings.featured_3_id },
+      { type: settings.featured_4_type, id: settings.featured_4_id },
+      { type: settings.featured_5_type, id: settings.featured_5_id },
+    ];
+
+    const featuredContent = [];
+
+    features.forEach((feature, index) => {
+      console.log(`Fetching feature ${index + 1}:`, feature); // Debugging log
+
+      if (feature.type === "category" && feature.id) {
+        ajax(`/c/${feature.id}/show.json`).then((result) => {
+          console.log("Category result:", result); // Debugging log
+
+          const category = result.category;
+          featuredContent.push({
+            type: "category",
+            name: category.name,
+            description: category.description,
+            url: `/c/${feature.id}`,
+            image: category.background_url || "/path/to/default/image.jpg",
+          });
+
+          this.set("featuredContent", featuredContent);
+        });
+      } else if (feature.type === "topic" && feature.id) {
+        ajax(`/t/${feature.id}.json`).then((result) => {
+          console.log("Topic result:", result); // Debugging log
+
+          const topic = result;
+          featuredContent.push({
+            type: "topic",
+            name: topic.title,
+            description: topic.excerpt,
+            url: `/t/${topic.id}`,
+            image: topic.image_url || "/path/to/default/image.jpg",
+          });
+
+          this.set("featuredContent", featuredContent);
+        });
+      }
+    });
+  },
+});
+
